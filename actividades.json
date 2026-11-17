@@ -1,0 +1,120 @@
+{
+  "actualizado": "2026-11-16",
+  "nota": "Para agregar una actividad: copie un bloque, cambie el id y los datos. estado: hecho | proximo | por-definir. fecha en formato AAAA-MM-DD (o null si aún no hay fecha).",
+  "actividades": [
+    {
+      "id": "decoracion-casa",
+      "estado": "hecho",
+      "fecha": null,
+      "fechaTexto": { "es": "Noviembre de 2026", "en": "November 2026" },
+      "lugar": "Caucasia",
+      "titulo": { "es": "Decoramos la casa", "en": "We decorated the house" },
+      "detalle": {
+        "es": "Marleny se esmeró para que todo quedara lindo: el árbol dorado y blanco, el centro de mesa, la cocina, la consola con los renos y la casita del pesebre. Le ayudaron Alejo, Isaac y la infaltable Iris.",
+        "en": "Marleny put her heart into making everything beautiful: the gold and white tree, the centerpiece, the kitchen, the console with the reindeer and the little manger house. Alejo, Isaac and our ever-present Iris helped her."
+      },
+      "quienes": ["Marleny", "Alejo", "Isaac", "Iris"],
+      "foto": "img/foto-1.jpg",
+      "video": "video/navidad-2026.mp4"
+    },
+    {
+      "id": "conocer-alaia",
+      "estado": "hecho",
+      "fecha": null,
+      "fechaTexto": { "es": "Puente festivo, 14 al 16 de noviembre de 2026", "en": "Long weekend, November 14–16, 2026" },
+      "lugar": "Itagüí, Rionegro y El Carmen de Viboral",
+      "titulo": { "es": "Conocimos a Alaia", "en": "We met Alaia" },
+      "detalle": {
+        "es": "Harold viajó a conocer a la nieta Alaia, la hija de Mauricio, y pasó un fin de semana fantástico junto a Mauricio y Valeria: paseo por el Oriente antioqueño y una experiencia en Cerámicas Creare, donde pintó su taza Vibras Positivas.",
+        "en": "Harold traveled to meet his granddaughter Alaia, Mauricio's daughter, and spent a wonderful weekend with Mauricio and Valeria: a stroll through eastern Antioquia and a pottery experience at Cerámicas Creare, where he painted his Vibras Positivas mug."
+      },
+      "quienes": ["Harold", "Mauricio", "Valeria", "Alaia"],
+      "foto": "img/alaia.jpg",
+      "fotos": ["img/alaia.jpg", "img/creare.jpg", "img/paseo-oriente.jpg"]
+    },
+    {
+      "id": "pesebre",
+      "estado": "por-definir",
+      "fecha": null,
+      "fechaTexto": { "es": "Fecha por definir", "en": "Date to be set" },
+      "lugar": "Caucasia",
+      "titulo": { "es": "Armar el pesebre", "en": "Set up the nativity scene" },
+      "detalle": {
+        "es": "La casita ya está lista; falta acomodar las figuras entre todos.",
+        "en": "The little house is ready; we just need to place the figures together."
+      },
+      "quienes": ["Toda la familia"],
+      "foto": "img/foto-8.jpg"
+    },
+    {
+      "id": "velitas",
+      "estado": "proximo",
+      "fecha": "2026-12-07",
+      "hora": "19:00",
+      "lugar": "Caucasia",
+      "titulo": { "es": "Noche de Velitas", "en": "Little Candles Night" },
+      "detalle": {
+        "es": "Encendemos las velitas y los faroles en la víspera de la Inmaculada Concepción.",
+        "en": "We light candles and lanterns on the eve of the Immaculate Conception."
+      },
+      "quienes": ["Toda la familia"],
+      "foto": "img/foto-6.jpg"
+    },
+    {
+      "id": "novena",
+      "estado": "proximo",
+      "fecha": "2026-12-16",
+      "fechaFin": "2026-12-24",
+      "hora": "19:30",
+      "lugar": "Caucasia",
+      "titulo": { "es": "Novena de Aguinaldos", "en": "Christmas Novena" },
+      "detalle": {
+        "es": "Nueve noches de rezo, villancicos y compartir, del 16 al 24 de diciembre.",
+        "en": "Nine nights of prayer, carols and sharing, from December 16 to 24."
+      },
+      "quienes": ["Toda la familia"],
+      "foto": "img/foto-2.jpg"
+    },
+    {
+      "id": "nochebuena",
+      "estado": "proximo",
+      "fecha": "2026-12-24",
+      "hora": "20:00",
+      "lugar": "Caucasia",
+      "titulo": { "es": "Nochebuena", "en": "Christmas Eve" },
+      "detalle": {
+        "es": "Cena en familia, último día de la novena y la espera de la medianoche.",
+        "en": "Family dinner, the last night of the novena and waiting for midnight."
+      },
+      "quienes": ["Toda la familia"],
+      "foto": "img/foto-9.jpg"
+    },
+    {
+      "id": "navidad",
+      "estado": "proximo",
+      "fecha": "2026-12-25",
+      "lugar": "Caucasia",
+      "titulo": { "es": "Día de Navidad", "en": "Christmas Day" },
+      "detalle": {
+        "es": "Día de descanso, de abrir los regalos y de compartir.",
+        "en": "A day to rest, open presents and be together."
+      },
+      "quienes": ["Toda la familia"],
+      "foto": "img/foto-4.jpg"
+    },
+    {
+      "id": "ano-viejo",
+      "estado": "proximo",
+      "fecha": "2026-12-31",
+      "hora": "21:00",
+      "lugar": "Por definir",
+      "titulo": { "es": "Despedida del año", "en": "New Year's Eve" },
+      "detalle": {
+        "es": "Despedimos el 2026 juntos y recibimos el 2027.",
+        "en": "We say goodbye to 2026 together and welcome 2027."
+      },
+      "quienes": ["Toda la familia"],
+      "foto": "img/foto-5.jpg"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Navidad Familia Marín González</title>
+<meta name="description" content="Nuestra agenda de actividades en familia para esta Navidad: Caucasia, Itagüí y Rionegro.">
+<meta name="theme-color" content="#120d07">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Navidad Familia Marín González">
+<meta property="og:description" content="Nuestra agenda de actividades en familia para esta Navidad.">
+<meta property="og:image" content="img/og-navidad.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="img/og-navidad.jpg">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="luces" aria-hidden="true"></canvas>
+
+<header class="barra">
+  <a class="marca" href="#inicio">Marín González</a>
+  <nav>
+    <a href="#hoy" data-t="navHoy">Hoy</a>
+    <a href="#agenda" data-t="navAgenda">Agenda</a>
+    <a href="#recuerdos" data-t="navRecuerdos">Recuerdos</a>
+    <a href="#familia" data-t="navFamilia">Familia</a>
+  </nav>
+  <button id="idioma" class="idioma" aria-label="Cambiar idioma">EN</button>
+</header>
+
+<section id="inicio" class="portada">
+  <video class="portada-video" src="video/fondo.mp4" poster="img/foto-1.jpg" autoplay muted loop playsinline></video>
+  <div class="portada-velo"></div>
+  <div class="portada-texto">
+    <p class="antetitulo" data-t="ante">Navidad 2026</p>
+    <h1><span data-t="familia">Familia</span><br>Marín González</h1>
+    <p class="frase" data-t="frase">Para nosotros la época más hermosa del año es la Navidad.</p>
+    <div class="cuenta" id="cuenta">
+      <div><b id="cDias">--</b><span data-t="dias">días</span></div>
+      <div><b id="cHoras">--</b><span data-t="horas">horas</span></div>
+      <div><b id="cMin">--</b><span data-t="min">min</span></div>
+      <div><b id="cSeg">--</b><span data-t="seg">seg</span></div>
+    </div>
+    <p class="cuenta-pie" id="cuentaPie" data-t="paraNochebuena">para la Nochebuena</p>
+    <a class="boton" href="#agenda" data-t="verAgenda">Ver la agenda</a>
+  </div>
+</section>
+
+<section id="hoy" class="seccion hoy">
+  <div class="cab">
+    <p class="antetitulo" id="hoyFecha"></p>
+    <h2 data-t="hoyTitulo">Hoy en familia</h2>
+  </div>
+  <div id="hoyContenido" class="hoy-tarjeta"></div>
+  <button class="boton fantasma" id="actualizar" data-t="actualizar">Actualizar</button>
+  <p class="nota" id="actualizado"></p>
+</section>
+
+<section id="agenda" class="seccion">
+  <div class="cab">
+    <p class="antetitulo" data-t="agendaAnte">Lo que vamos a vivir juntos</p>
+    <h2 data-t="agendaTitulo">Agenda de actividades</h2>
+  </div>
+  <div class="filtros" id="filtros">
+    <button class="activo" data-f="todas" data-t="fTodas">Todas</button>
+    <button data-f="proximo" data-t="fProximas">Próximas</button>
+    <button data-f="hecho" data-t="fHechas">Ya vividas</button>
+    <button data-f="por-definir" data-t="fPendientes">Por definir</button>
+  </div>
+  <div id="lista" class="lista"></div>
+</section>
+
+<section id="recuerdos" class="seccion recuerdos">
+  <div class="cab">
+    <p class="antetitulo" data-t="recAnte">Así quedó la casa</p>
+    <h2 data-t="recTitulo">Recuerdos de esta Navidad</h2>
+  </div>
+  <div class="video-marco">
+    <video src="video/navidad-2026.mp4" poster="img/foto-4.jpg" controls playsinline preload="metadata"></video>
+    <p data-t="videoPie">El recorrido por la casa, decorada por Marleny con ayuda de Alejo, Isaac e Iris.</p>
+  </div>
+  <div class="cinta" id="cinta"></div>
+</section>
+
+<section id="familia" class="seccion familia">
+  <div class="cab">
+    <p class="antetitulo" data-t="famAnte">Los que hacen la Navidad</p>
+    <h2 data-t="famTitulo">Nuestra familia</h2>
+  </div>
+  <div class="personas" id="personas"></div>
+</section>
+
+<section id="proponer" class="seccion proponer">
+  <div class="cab">
+    <p class="antetitulo" data-t="propAnte">Entre todos la alimentamos</p>
+    <h2 data-t="propTitulo">Proponer una actividad</h2>
+    <p class="intro" data-t="propIntro">Escriba la idea y se le envía a Harold por WhatsApp para agregarla a la agenda.</p>
+  </div>
+  <form id="formulario" class="formulario">
+    <label><span data-t="lQue">¿Qué haremos?</span><input name="que" required></label>
+    <label><span data-t="lCuando">¿Cuándo?</span><input name="cuando" type="date"></label>
+    <label><span data-t="lHora">Hora</span><input name="hora" type="time"></label>
+    <label><span data-t="lDonde">¿Dónde?</span><input name="donde"></label>
+    <label class="ancho"><span data-t="lQuienes">¿Quiénes van?</span><input name="quienes"></label>
+    <label class="ancho"><span data-t="lPropone">¿Quién lo propone?</span><input name="propone" required></label>
+    <button class="boton ancho" type="submit" data-t="enviar">Enviar por WhatsApp</button>
+  </form>
+</section>
+
+<footer class="pie">
+  <p data-t="pie1">Hecha con cariño para la familia Marín González.</p>
+  <p class="firma">Vibras Positivas HM</p>
+</footer>
+
+<div id="visor" class="visor" hidden><img alt=""><button data-t="cerrar">Cerrar</button></div>
+
+<script src="app.js"></script>
+</body>
+</html>
