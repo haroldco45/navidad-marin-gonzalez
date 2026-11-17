@@ -58,7 +58,7 @@ const FAMILIA = [
   { n:'Valeria', es:'Hija', en:'Daughter' },
   { n:'Alaia', es:'La nieta, la nueva alegría', en:'Granddaughter, our new joy' }
 ];
-const CINTA = ['foto-4','foto-2','foto-3','foto-1','foto-7','foto-5','foto-9','foto-8','foto-10','foto-6','foto-11','foto-12','alaia','creare','paseo-oriente'];
+const CINTA = ['foto-4','foto-2','foto-3','foto-1','foto-7','foto-5','foto-9','foto-8','foto-10','foto-6','foto-11','foto-12','alaia','creare','paseo-oriente','atendido'];
 
 let lang = 'es';
 try { lang = localStorage.getItem('nmg-lang') || 'es'; } catch(e) {}
