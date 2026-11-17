@@ -297,4 +297,4 @@ $('#idioma').addEventListener('click', () => {
 /* Inicio */
 pintarTextos(); pintarFamilia(); pintarCinta(); tic(); setInterval(tic, 1000); cargar();
 document.addEventListener('visibilitychange', () => { if (!document.hidden) cargar(); });
-if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').then(r => r.update()).catch(() => {}));
