@@ -149,7 +149,7 @@ function pintarLista() {
       ? `<img src="${a.foto}" alt="${txt(a.titulo)}" loading="lazy">`
       : `<div class="sinfoto">${txt(a.titulo).charAt(0)}</div>`;
     return `<article class="act" data-id="${a.id}">
-      <div class="act-foto">${foto}<span class="estado ${a._e}">${nombreEstado[a._e]}</span></div>
+      <div class="act-foto"${a.foto ? ` style="--bg:url('${a.foto}')"` : ''}>${foto}<span class="estado ${a._e}">${nombreEstado[a._e]}</span></div>
       <div class="act-cuerpo">
         <span class="act-fecha">${textoFecha(a)}</span>
         <h3>${txt(a.titulo)}</h3>

@@ -1,4 +1,4 @@
-const CACHE = 'navidad-mg-v1';
+const CACHE = 'navidad-mg-v2';
 const BASE = ['./', 'index.html', 'styles.css', 'app.js', 'actividades.json', 'manifest.json', 'img/foto-1.jpg', 'img/foto-4.jpg', 'img/icon-192.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(BASE))); self.skipWaiting(); });
 self.addEventListener('activate', e => {
