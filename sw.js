@@ -1,5 +1,5 @@
 // Primero la red (siempre la versión más nueva); si no hay internet, lo guardado.
-const CACHE = 'navidad-mg-v3';
+const CACHE = 'navidad-mg-v4';
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(k => Promise.all(k.filter(n => n !== CACHE).map(n => caches.delete(n)))).then(() => self.clients.claim()));

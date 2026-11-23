@@ -7,20 +7,20 @@
 <meta name="description" content="Nuestra agenda de actividades en familia para esta Navidad: Caucasia, Itagüí y Rionegro.">
 <meta name="theme-color" content="#120d07">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Navidad Familia Marín González">
-<meta property="og:description" content="Nuestra agenda de actividades en familia para esta Navidad.">
-<meta property="og:image" content="img/og-navidad.jpg">
+<meta property="og:title" content="Gracias, Marle — Navidad Familia Marín González">
+<meta property="og:description" content="Somos felices gracias a ella, que le pone ese toque especial a la Navidad.">
+<meta property="og:image" content="img/og-marle.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="img/og-navidad.jpg">
+<meta name="twitter:image" content="img/og-marle.jpg">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="img/icon-192.png">
 <link rel="apple-touch-icon" href="img/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 <canvas id="luces" aria-hidden="true"></canvas>
@@ -28,6 +28,7 @@
 <header class="barra">
   <a class="marca" href="#inicio">Marín González</a>
   <nav>
+    <a href="#marle" data-t="navMarle">Marle</a>
     <a href="#hoy" data-t="navHoy">Hoy</a>
     <a href="#agenda" data-t="navAgenda">Agenda</a>
     <a href="#recuerdos" data-t="navRecuerdos">Recuerdos</a>
@@ -50,7 +51,50 @@
       <div><b id="cSeg">--</b><span data-t="seg">seg</span></div>
     </div>
     <p class="cuenta-pie" id="cuentaPie" data-t="paraNochebuena">para la Nochebuena</p>
-    <a class="boton" href="#agenda" data-t="verAgenda">Ver la agenda</a>
+    <div class="botones"><a class="boton" href="#marle" data-t="verMarle">Gracias, Marle</a><a class="boton fantasma" href="#agenda" data-t="verAgenda">Ver la agenda</a></div>
+  </div>
+</section>
+
+
+<section id="marle" class="marle">
+  <div class="marle-escena">
+    <div class="marle-fotos" id="marleFotos" aria-hidden="true"></div>
+    <div class="marle-velo"></div>
+    <div class="marle-texto">
+      <p class="antetitulo" data-t="marleAnte">Para Marle, mi compañera de vida</p>
+      <h2 class="marle-titulo"><span class="script" data-t="marleGracias">Gracias, amor</span></h2>
+      <blockquote class="marle-cita">
+        <p data-t="marleCita">Somos felices gracias a ella, que le pone ese toque especial a la Navidad. Es la mejor época del año, y la Navidad es muy especial con Marle.</p>
+        <cite>Harold</cite>
+      </blockquote>
+      <div class="marle-puntos" id="marlePuntos"></div>
+    </div>
+  </div>
+
+  <div class="seccion marle-rincon">
+    <div class="cab">
+      <p class="antetitulo" data-t="rinconAnte">Hecho por sus manos</p>
+      <h2 data-t="rinconTitulo">La casa, rincón por rincón</h2>
+      <p class="intro" data-t="rinconIntro">Cada detalle lo pensó ella. Toque una foto para verla grande.</p>
+    </div>
+    <div class="mosaico" id="mosaico"></div>
+  </div>
+
+  <div class="seccion marle-video">
+    <div class="marle-video-grid">
+      <div class="video-marco grande">
+        <video id="videoMarle" src="video/marle-navidad-2026.mp4" poster="img/marle-arbol.jpg" controls playsinline preload="metadata"></video>
+      </div>
+      <div class="marle-video-texto">
+        <p class="antetitulo" data-t="vmAnte">El recorrido completo</p>
+        <h2 data-t="vmTitulo">Así nos recibe la Navidad en casa</h2>
+        <p data-t="vmTexto">De la entrada a la cocina, del comedor al árbol, y al final el pesebre con su estrella encendida. Todo, obra de Marle.</p>
+        <div class="marle-acciones">
+          <button class="boton" id="compartirMarle" data-t="compartir">Compartir este detalle</button>
+          <a class="boton fantasma" href="#agenda" data-t="verAgenda">Ver la agenda</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -120,8 +164,8 @@
   <p class="firma">Vibras Positivas HM</p>
 </footer>
 
-<div id="visor" class="visor" hidden><img alt=""><button data-t="cerrar">Cerrar</button></div>
+<div id="visor" class="visor" hidden><img alt=""><p class="visor-pie" id="visorPie"></p><button data-t="cerrar">Cerrar</button></div>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>

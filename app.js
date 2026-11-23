@@ -5,7 +5,15 @@ const NOCHEBUENA = new Date('2026-12-24T00:00:00-05:00');
 
 const T = {
   es: {
-    navHoy:'Hoy', navAgenda:'Agenda', navRecuerdos:'Recuerdos', navFamilia:'Familia',
+    navMarle:'Marle', navHoy:'Hoy', navAgenda:'Agenda', navRecuerdos:'Recuerdos', navFamilia:'Familia',
+    
+    verMarle:'Gracias, Marle', marleAnte:'Para Marle, mi compañera de vida', marleGracias:'Gracias, amor',
+    marleCita:'Somos felices gracias a ella, que le pone ese toque especial a la Navidad. Es la mejor época del año, y la Navidad es muy especial con Marle.',
+    rinconAnte:'Hecho por sus manos', rinconTitulo:'La casa, rincón por rincón', rinconIntro:'Cada detalle lo pensó ella. Toque una foto para verla grande.',
+    vmAnte:'El recorrido completo', vmTitulo:'Así nos recibe la Navidad en casa',
+    vmTexto:'De la entrada a la cocina, del comedor al árbol, y al final el pesebre con su estrella encendida. Todo, obra de Marle.',
+    compartir:'Compartir este detalle', copiado:'Enlace copiado',
+    msgMarle:'Gracias, Marle, por ponerle ese toque especial a nuestra Navidad. Mire cómo quedó la casa:',
     ante:'Navidad 2026', familia:'Familia', frase:'Para nosotros la época más hermosa del año es la Navidad.',
     dias:'días', horas:'horas', min:'min', seg:'seg', paraNochebuena:'para la Nochebuena', yaNochebuena:'¡Feliz Navidad, familia!',
     verAgenda:'Ver la agenda', hoyTitulo:'Hoy en familia', actualizar:'Actualizar',
@@ -26,7 +34,15 @@ const T = {
     msg:'Hola Harold, propongo esta actividad para la agenda de Navidad de la familia:'
   },
   en: {
-    navHoy:'Today', navAgenda:'Schedule', navRecuerdos:'Memories', navFamilia:'Family',
+    navMarle:'Marle', navHoy:'Today', navAgenda:'Schedule', navRecuerdos:'Memories', navFamilia:'Family',
+    
+    verMarle:'Thank you, Marle', marleAnte:'For Marle, my life partner', marleGracias:'Thank you, love',
+    marleCita:'We are happy thanks to her, who gives Christmas that special touch. It is the best time of the year, and Christmas is so special with Marle.',
+    rinconAnte:'Made by her hands', rinconTitulo:'The house, corner by corner', rinconIntro:'She thought of every detail. Tap a photo to see it large.',
+    vmAnte:'The full tour', vmTitulo:'How Christmas welcomes us at home',
+    vmTexto:'From the entrance to the kitchen, from the dining room to the tree, and finally the nativity scene with its star shining. All of it, Marle\'s work.',
+    compartir:'Share this gift', copiado:'Link copied',
+    msgMarle:'Thank you, Marle, for giving our Christmas that special touch. Look how the house turned out:',
     ante:'Christmas 2026', familia:'The', frase:'For us, the most beautiful time of the year is Christmas.',
     dias:'days', horas:'hours', min:'min', seg:'sec', paraNochebuena:'until Christmas Eve', yaNochebuena:'Merry Christmas, family!',
     verAgenda:'See the schedule', hoyTitulo:'Today as a family', actualizar:'Refresh',
@@ -50,7 +66,7 @@ const T = {
 
 const FAMILIA = [
   { n:'Harold', es:'Papá y abuelo', en:'Dad and grandpa' },
-  { n:'Marleny', es:'El alma de la Navidad en casa', en:'The heart of Christmas at home' },
+  { n:'Marleny', es:'Marle, mi compañera de vida y el alma de la Navidad en casa', en:'Marle, my life partner and the heart of Christmas at home' },
   { n:'Alejo', es:'Hijo, ayudante en la decoración', en:'Son, decorating helper' },
   { n:'Isaac', es:'Hijo, ayudante en la decoración', en:'Son, decorating helper' },
   { n:'Iris', es:'La infaltable; con nosotros hace muchos años', en:'Always there; with us for many years' },
@@ -182,19 +198,68 @@ function pintarFamilia() {
 }
 
 /* Visor de fotos */
-let galeria = [], gi = 0;
-function abrirVisor(fotos, i) {
-  galeria = fotos; gi = i || 0;
-  $('#visor img').src = galeria[gi]; $('#visor').hidden = false;
+let galeria = [], pies = [], gi = 0;
+function mostrarVisor() { $('#visor img').src = galeria[gi]; $('#visorPie').textContent = pies[gi] || ''; }
+function abrirVisor(fotos, i, textos) {
+  galeria = fotos; pies = textos || []; gi = i || 0;
+  mostrarVisor(); $('#visor').hidden = false;
 }
 $('#visor').addEventListener('click', e => {
   if (e.target.tagName === 'BUTTON') { $('#visor').hidden = true; return; }
-  if (galeria.length > 1) { gi = (gi + 1) % galeria.length; $('#visor img').src = galeria[gi]; }
+  if (galeria.length > 1) { gi = (gi + 1) % galeria.length; mostrarVisor(); }
 });
 $('#cinta').addEventListener('click', e => {
   if (e.target.tagName !== 'IMG') return;
   const fotos = [...document.querySelectorAll('#cinta img')].map(i => i.getAttribute('src'));
   abrirVisor(fotos, fotos.indexOf(e.target.getAttribute('src')));
+});
+
+
+/* ===== Gracias, Marle ===== */
+const RINCONES = [
+  { f:'marle-arbol', es:['El árbol','Blanco, plata y dorado, con su gran cinta de satín'], en:['The tree','White, silver and gold, with its great satin ribbon'] },
+  { f:'marle-pesebre-casita', es:['El pesebre','La casita del Niño Dios y su estrella encendida'], en:['The nativity scene','The little house of Baby Jesus and its shining star'] },
+  { f:'marle-arbol-detalle', es:['Mariposas y pajaritos','Copos de nieve y estrellas tejidas en cada rama'], en:['Butterflies and little birds','Snowflakes and woven stars on every branch'] },
+  { f:'marle-consola', es:['La consola de los renos','Renos blancos y arbolitos plateados frente al espejo'], en:['The reindeer console','White reindeer and silver trees by the mirror'] },
+  { f:'marle-arbol-base', es:['Al pie del árbol','El venadito y los regalos esperando la Nochebuena'], en:['At the foot of the tree','The little deer and the gifts waiting for Christmas Eve'] },
+  { f:'marle-pesebre', es:['El pueblito','Casitas, luces y figuras alrededor del pesebre'], en:['The little village','Houses, lights and figures around the manger'] },
+  { f:'marle-sagrada-familia', es:['La Sagrada Familia','En dorado, junto al arbolito calado'], en:['The Holy Family','In gold, beside the lace-cut tree'] },
+  { f:'marle-comedor', es:['El comedor','Centro de mesa y camino con renos'], en:['The dining room','Centerpiece and reindeer table runner'] },
+  { f:'marle-hohoho', es:['Ho Ho Ho','La alegría también va abajo de la consola'], en:['Ho Ho Ho','Joy fills the shelf below the console too'] },
+  { f:'marle-cocina', es:['La cocina','Hasta los tarritos se vistieron de Navidad'], en:['The kitchen','Even the jars dressed up for Christmas'] },
+  { f:'marle-santa-cuenta', es:['Santa cuenta los días','El letrero que lleva la cuenta hasta su llegada'], en:['Santa counts the days','The sign counting down to his arrival'] },
+  { f:'marle-muneco', es:['El que nos recibe','El muñeco navideño de la entrada'], en:['Our greeter','The Christmas doll at the entrance'] }
+];
+const ESCENA = ['marle-arbol','marle-pesebre-casita','marle-consola','marle-arbol-detalle','marle-pesebre','marle-comedor','marle-sagrada-familia'];
+
+function pintarEscena() {
+  $('#marleFotos').innerHTML = ESCENA.map((f,i) => `<figure class="${i ? '' : 'ver'}" style="--bg:url('img/${f}.jpg')"><img src="img/${f}.jpg" alt="" ${i ? 'loading="lazy"' : ''}></figure>`).join('');
+  $('#marlePuntos').innerHTML = ESCENA.map((_,i) => `<span class="${i ? '' : 'ver'}"></span>`).join('');
+  let i = 0;
+  setInterval(() => {
+    if (document.hidden) return;
+    const figs = document.querySelectorAll('#marleFotos figure'), pts = document.querySelectorAll('#marlePuntos span');
+    figs[i].classList.remove('ver'); pts[i].classList.remove('ver');
+    i = (i + 1) % figs.length;
+    figs[i].classList.add('ver'); pts[i].classList.add('ver');
+  }, 6000);
+}
+function pintarMosaico() {
+  $('#mosaico').innerHTML = RINCONES.map((r,i) => `<figure class="pieza" data-i="${i}">
+      <img src="img/${r.f}.jpg" alt="${r[lang][0]}" loading="lazy">
+      <figcaption><b>${r[lang][0]}</b><small>${r[lang][1]}</small></figcaption></figure>`).join('');
+  const o = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); o.unobserve(e.target); } }), { threshold:.1 });
+  document.querySelectorAll('.pieza').forEach((p,k) => { p.style.transitionDelay = (k % 3) * .12 + 's'; o.observe(p); });
+}
+$('#mosaico').addEventListener('click', e => {
+  const p = e.target.closest('.pieza'); if (!p) return;
+  abrirVisor(RINCONES.map(r => 'img/' + r.f + '.jpg'), +p.dataset.i, RINCONES.map(r => r[lang][0] + ' · ' + r[lang][1]));
+});
+$('#compartirMarle').addEventListener('click', async () => {
+  const url = location.origin + location.pathname + '#marle';
+  const texto = t('msgMarle');
+  if (navigator.share) { try { await navigator.share({ title: t('marleGracias'), text: texto, url }); return; } catch(e) { if (e.name === 'AbortError') return; } }
+  window.open(`https://wa.me/?text=${encodeURIComponent(texto + ' ' + url)}`, '_blank');
 });
 
 /* Calendario (.ics) */
@@ -265,7 +330,7 @@ $('#actualizar').addEventListener('click', cargar);
 $('#idioma').addEventListener('click', () => {
   lang = lang === 'es' ? 'en' : 'es';
   try { localStorage.setItem('nmg-lang', lang); } catch(e) {}
-  pintarTextos(); pintarFamilia(); pintarHoy(); pintarLista(); tic();
+  pintarTextos(); pintarFamilia(); pintarMosaico(); pintarHoy(); pintarLista(); tic();
 });
 
 /* Lucecitas de Navidad */
@@ -295,6 +360,6 @@ $('#idioma').addEventListener('click', () => {
 })();
 
 /* Inicio */
-pintarTextos(); pintarFamilia(); pintarCinta(); tic(); setInterval(tic, 1000); cargar();
+pintarTextos(); pintarEscena(); pintarMosaico(); pintarFamilia(); pintarCinta(); tic(); setInterval(tic, 1000); cargar();
 document.addEventListener('visibilitychange', () => { if (!document.hidden) cargar(); });
 if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').then(r => r.update()).catch(() => {}));

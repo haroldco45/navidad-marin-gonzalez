@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-16",
+  "actualizado": "2026-11-23",
   "nota": "Para agregar una actividad: copie un bloque, cambie el id y los datos. estado: hecho | proximo | por-definir. fecha en formato AAAA-MM-DD (o null si aún no hay fecha).",
   "actividades": [
     {
@@ -26,7 +26,15 @@
         "Iris"
       ],
       "foto": "img/foto-1.jpg",
-      "video": "video/navidad-2026.mp4"
+      "video": "video/marle-navidad-2026.mp4",
+      "fotos": [
+        "img/marle-arbol.jpg",
+        "img/marle-arbol-detalle.jpg",
+        "img/marle-consola.jpg",
+        "img/marle-comedor.jpg",
+        "img/marle-cocina.jpg",
+        "img/foto-1.jpg"
+      ]
     },
     {
       "id": "conocer-alaia",
@@ -61,25 +69,33 @@
     },
     {
       "id": "pesebre",
-      "estado": "por-definir",
+      "estado": "hecho",
       "fecha": null,
       "fechaTexto": {
-        "es": "Fecha por definir",
-        "en": "Date to be set"
+        "es": "Noviembre de 2026",
+        "en": "November 2026"
       },
       "lugar": "Caucasia",
       "titulo": {
-        "es": "Armar el pesebre",
-        "en": "Set up the nativity scene"
+        "es": "Armamos el pesebre",
+        "en": "We set up the nativity scene"
       },
       "detalle": {
-        "es": "La casita ya está lista; falta acomodar las figuras entre todos.",
-        "en": "The little house is ready; we just need to place the figures together."
+        "es": "Quedó precioso: la casita del Niño Dios con la estrella encendida, las lucecitas y todo el pueblito alrededor. Obra de Marle.",
+        "en": "It turned out beautiful: the little house of Baby Jesus with its shining star, the twinkling lights and the whole village around it. Marle's work."
       },
       "quienes": [
-        "Toda la familia"
+        "Marleny",
+        "Alejo",
+        "Isaac",
+        "Iris"
       ],
-      "foto": "img/foto-8.jpg"
+      "foto": "img/marle-pesebre-casita.jpg",
+      "fotos": [
+        "img/marle-pesebre-casita.jpg",
+        "img/marle-pesebre.jpg",
+        "img/marle-sagrada-familia.jpg"
+      ]
     },
     {
       "id": "velitas",
